@@ -1,25 +1,25 @@
 import React from "react";
+import { Package } from "lucide-react";
+import CategoryTag from "./CategoryTag";
+import PriceTag from "./PriceTag";
+import StatusBadge from "./StatusBadge";
+import Button from "./Button";
 // moduleと記載したcssは使いたい部品で、読み込む必要があります！必ずです！😊
 import styles from "./ProductCard.module.css";
-import { Package, Pencil, BicepsFlexed } from "lucide-react";
 
-const ProductCard = ({ name, price, stock }) => {
+const ProductCard = ({ name, price, stock, category }) => {
   return (
     <div className={styles.card}>
-      <h2 className={styles.name}>
-        <Package size={18} />
-        {name}
-      </h2>
-      <p className={styles.price}>¥{price}</p>
-      <p className={styles.stock}>
-        <BicepsFlexed />
-        在庫 {stock}
-      </p>
-
-      <button className={styles.button}>
-        <BicepsFlexed />
-        <Pencil color="yellow" size={14} /> 編集
-      </button>
+      <h3 className={styles.name}>
+        <Package size={18} /> {name}
+      </h3>
+      <CategoryTag label={category} />
+      <PriceTag price={price} />
+      <StatusBadge stock={stock} />
+      <div className={styles.actions}>
+        <Button label="編集" variant="primary" />
+        <Button label="削除" variant="danger" />
+      </div>
     </div>
   );
 };
