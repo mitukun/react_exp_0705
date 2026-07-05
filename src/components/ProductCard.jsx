@@ -11,7 +11,10 @@ const ProductCard = ({ name, price, stock }) => {
         {name}
       </h2>
       <p className={styles.price}>¥{price}</p>
-      <p className={styles.stock}>在庫 {stock}</p>
+      <p className={styles.stock}>
+        <BicepsFlexed />
+        在庫 {stock}
+      </p>
 
       <button className={styles.button}>
         <BicepsFlexed />
